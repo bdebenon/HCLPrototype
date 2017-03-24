@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	public GameManager gManager = null;
+	public static GameManager gManager = null;
 
 	// Use this for initialization
 	void Start () {
