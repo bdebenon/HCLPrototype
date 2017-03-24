@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order {
+public class Order : MonoBehaviour {
 
     // true = dine in. false = take out.
     public bool diningOption = true;
