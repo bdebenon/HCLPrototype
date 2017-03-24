@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager gManager = null;
+    public Order order;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
 		DontDestroyOnLoad (gameObject);
 
+        order = new Order();
 	}
 
 	public void changeScene(string sceneName)

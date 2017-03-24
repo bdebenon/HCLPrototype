@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order : MonoBehaviour {
+[Serializable]
+public class Order {
 
     // true = dine in. false = take out.
     public bool diningOption = true;
