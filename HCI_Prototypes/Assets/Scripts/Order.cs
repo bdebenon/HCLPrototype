@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Order {
 
-    // If dineIn is false then the order is take out
-    public bool dineIn = true;
+    // true = dine in. false = take out.
+    public bool diningOption = true;
     
     public List<Item> items;
     
@@ -17,8 +17,8 @@ public class Order {
         items.Add(item);
     }
     
-    void takeOut(bool diningOption){
-        dineIn = diningOption;
+    void setDiningOption(bool _option){
+        diningOption = _option;
     }
     
     void checkOut(){
