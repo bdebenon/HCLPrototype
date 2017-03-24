@@ -17,8 +17,8 @@ public class Order {
         items.Add(item);
     }
     
-    void takeOut(){
-        dineIn = false;
+    void takeOut(bool diningOption){
+        dineIn = diningOption;
     }
     
     void checkOut(){
