@@ -19,7 +19,7 @@ public class Order {
         items.Add(item);
     }
     
-    void setDiningOption(bool _option){
+    public void setDiningOption(bool _option){
         diningOption = _option;
     }
     
