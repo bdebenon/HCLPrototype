@@ -60,7 +60,7 @@ public class Order {
 	{
 		double cost = 0;
 
-		cost += waters 1.00;
+		cost += waters * 1.00;
 		cost += cokes * 2.00;
 		cost += sprites * 2.00;
 		cost += fantas * 2.00;
