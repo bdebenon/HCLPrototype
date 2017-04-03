@@ -43,7 +43,7 @@ public class Order {
 
 	public void removecustomBurger(int itemPosition)
 	{
-		customBurgers.Remove[itemPosition];
+		customBurgers.Remove(itemPosition);
 	}
     
     public void setDiningOption(bool _option){
@@ -60,7 +60,7 @@ public class Order {
 	{
 		double cost = 0;
 
-		cost += waters 1.00;
+		cost += waters * 1.00;
 		cost += cokes * 2.00;
 		cost += sprites * 2.00;
 		cost += fantas * 2.00;
@@ -74,9 +74,9 @@ public class Order {
 		cost += onionRings * 3.00;
 		cost += iceCream * 2.00;
 
-		foreach (CustomBurger cb in customBurgers)
+		foreach (KeyValuePair<int, CustomBurger> cb in customBurgers)
 		{
-			cost += cb.price;
+			cost += cb.Value.price;
 		}
 			
 		totalCost = cost;
