@@ -13,7 +13,8 @@ public class CustomBurger {
 	public CustomBurger()
 	{
 		price = 2.50;
-		options.Add (Options.beef, false);
+
+        options.Add (Options.beef, false);
 		options.Add (Options.chicken, false);
 		options.Add (Options.bacon, false);
 		options.Add (Options.cheese, false);
@@ -24,7 +25,7 @@ public class CustomBurger {
 		options.Add (Options.ketchup, false);
 		options.Add (Options.mustard, false);
 		options.Add (Options.mayo, false);
-
+        
 		optionPrices.Add (Options.beef, 2.0);
 		optionPrices.Add (Options.chicken, 2.5);
 		optionPrices.Add (Options.bacon, 1.5);
