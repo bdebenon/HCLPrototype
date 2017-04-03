@@ -37,16 +37,6 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (sceneName);
 	}
 
-	public void assignMenus()
-	{
-		mainMenu = GameObject.Find("Menu - Main");
-		burgerMenu = GameObject.Find("Menu - Burger");
-		drinksMenu = GameObject.Find("Menu - Drinks");
-		sidesMenu = GameObject.Find("Menu - Sides");
-		viewMenu = GameObject.Find("Menu - View Order");
-		checkoutMenu = GameObject.Find("Menu - Checkout");
-	}
-
 	// Update is called once per frame
 	void Update () {
 		
