@@ -57,8 +57,7 @@ public class ButtonManager : MonoBehaviour {
 			GameManager.gManager.order.chickenBurger++;
 			break;
 		case "burger_customBurger":
-			//DO SHIT HERE
-			GameManager.gManager.order.addcustomBurger();
+			GameManager.gManager.order.addCustomBurger();
 			break;
 		case "side_fries":
 			GameManager.gManager.order.fries++;
@@ -73,7 +72,52 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 	public void removeItemFromOrderButton(string item){
+		switch (item) {
+		case "drink_water":
+			GameManager.gManager.order.waters--;
+			break;
+		case "drink_coke":
+			GameManager.gManager.order.cokes--;
+			break;
+		case "drink_fanta":
+			GameManager.gManager.order.fantas--;
+			break;
+		case "drink_rootBeer":
+			GameManager.gManager.order.rootBeers--;
+			break;
+		case "drink_sprite":
+			GameManager.gManager.order.sprites--;
+			break;
+		case "drink_drPepper":
+			GameManager.gManager.order.drPeppers--;
+			break;
+		case "burger_hamburger":
+			GameManager.gManager.order.hamburger--;
+			break;
+		case "burger_cheeseburger":
+			GameManager.gManager.order.cheeseburger--;
+			break;
+		case "burger_baconBurger":
+			GameManager.gManager.order.baconBurger--;
+			break;
+		case "burger_chickenBurger":
+			GameManager.gManager.order.chickenBurger--;
+			break;
+		case "side_fries":
+			GameManager.gManager.order.fries--;
+			break;
+		case "side_onionRings":
+			GameManager.gManager.order.onionRings--;
+			break;
+		case "side_iceCream":
+			GameManager.gManager.order.iceCream--;
+			break;
+		}
+	}
 
+	public void removeCustomBurger(int number)
+	{
+		GameManager.gManager.order.removeCustomBurger(number);
 	}
 
 	public void checkOutButton(){

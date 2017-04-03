@@ -34,14 +34,14 @@ public class Order {
 	//Cost
     double totalCost = 0;
     
-    public void addcustomBurger()
+    public void addCustomBurger()
     {
 		CustomBurger newBurger = new CustomBurger ();
 		customBurgers.Add(customBurgerNumber, newBurger);
 		customBurgerNumber++;
     }
 
-	public void removecustomBurger(int itemPosition)
+	public void removeCustomBurger(int itemPosition)
 	{
 		customBurgers.Remove(itemPosition);
 	}
