@@ -7,6 +7,7 @@ public class _sceneManager : MonoBehaviour {
 
     public void changeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
+        GameManager.gManager.changeScene(sceneName);
     }
 }

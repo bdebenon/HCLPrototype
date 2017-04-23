@@ -44,6 +44,7 @@ public class Order {
 	public void removeCustomBurger(int itemPosition)
 	{
 		customBurgers.Remove(itemPosition);
+        //Maybe --custonBurgerNumber?
 	}
     
     public void setDiningOption(bool _option){

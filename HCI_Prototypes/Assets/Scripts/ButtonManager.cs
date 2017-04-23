@@ -123,5 +123,69 @@ public class ButtonManager : MonoBehaviour {
 	public void checkOutButton(){
 
 	}
-		
+
+    public void switchToScreen(string targetScreen)
+    {
+        GameManager.gManager.previousMenu.Push(GameManager.gManager.currentMenu);
+        GameManager.gManager.mainMenu.SetActive(false);
+        GameManager.gManager.burgerMenu.SetActive(false);
+        GameManager.gManager.drinksMenu.SetActive(false);
+        GameManager.gManager.sidesMenu.SetActive(false);
+        GameManager.gManager.viewMenu.SetActive(false);
+        GameManager.gManager.checkoutMenu.SetActive(false);
+        switch (targetScreen)
+        {
+            case "Main":
+                GameManager.gManager.mainMenu.SetActive(true);
+                break;
+            case "Burger":
+                GameManager.gManager.burgerMenu.SetActive(true);
+                break;
+            case "Drinks":
+                GameManager.gManager.drinksMenu.SetActive(true);
+                break;
+            case "Sides":
+                GameManager.gManager.sidesMenu.SetActive(true);
+                break;
+            case "View Order":
+                GameManager.gManager.viewMenu.SetActive(true);
+                break;
+            case "Checkout":
+                GameManager.gManager.checkoutMenu.SetActive(true);
+                break;
+        }
+    }
+
+    public void returnToPreviousScreen() 
+    {
+        string previous = GameManager.gManager.previousMenu.Pop();
+        GameManager.gManager.mainMenu.SetActive(false);
+        GameManager.gManager.burgerMenu.SetActive(false);
+        GameManager.gManager.drinksMenu.SetActive(false);
+        GameManager.gManager.sidesMenu.SetActive(false);
+        GameManager.gManager.viewMenu.SetActive(false);
+        GameManager.gManager.checkoutMenu.SetActive(false);
+        switch (previous)
+        {
+            case "Main":
+                GameManager.gManager.mainMenu.SetActive(true);
+                break;
+            case "Burger":
+                GameManager.gManager.burgerMenu.SetActive(true);
+                break;
+            case "Drinks":
+                GameManager.gManager.drinksMenu.SetActive(true);
+                break;
+            case "Sides":
+                GameManager.gManager.sidesMenu.SetActive(true);
+                break;
+            case "View Order":
+                GameManager.gManager.viewMenu.SetActive(true);
+                break;
+            case "Checkout":
+                GameManager.gManager.checkoutMenu.SetActive(true);
+                break;
+        }
+    }
+
 }
