@@ -2,27 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drink : Item {
+public class Drink : MonoBehaviour {
 
     string type = "";
 
     public void SetType(string _type)
     {
-        type = _type;
-        setPrice(type);
-        
-    }
-    
-    public void setPrice(string type){
-        
-        if(type.Equals("water"))
-        {
-            price = 0;
-        }
-        else    // drink is a soda
-        {
-            price = 2;
-        }
+        type = _type;        
     }
 
 }

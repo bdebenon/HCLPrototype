@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager gManager = null;
     public Order order;
-    public FunctionManager functionManager;
+	public FunctionManager functionManager;
     public DropZone dropZone;
     public Scene currentScene;
 
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject viewMenu;
 	public GameObject checkoutMenu;
     public GameObject paymentMenu;
+
+	public GameObject cup;
     
     public GameObject drinksTray;
 
