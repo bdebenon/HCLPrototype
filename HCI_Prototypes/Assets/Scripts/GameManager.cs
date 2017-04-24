@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager gManager = null;
     public Order order;
+    public FunctionManager functionManager;
+    public DropZone dropZone;
 
     //Game Objects Array
     public Transform[] gameObjectsArray;
