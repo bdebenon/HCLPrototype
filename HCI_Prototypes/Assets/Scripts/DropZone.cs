@@ -21,44 +21,35 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
         if(d != null){
-            //d.parentToReturnTo = this.transform;
             
-            if(gameObject.name == "CokeDispenser")
-            {
-				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
-                d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-            }   
-			if(gameObject.name == "DrPepperDispenser")
-			{
-				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
+			if (gameObject.name == "CokeDispenser") {
+				//GameManager.gManager.functionManager.addItemToOrder("drink_coke");
+				//Object newCup = Instantiate(eventData.pointerDrag, new Vector3(300, -200, 0), Quaternion.identity);
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-			}   
-			if(gameObject.name == "FantaDispenser")
-			{
+			} else if (gameObject.name == "DrPepperDispenser") {
 				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-			}   
-			if(gameObject.name == "RootbeerDispenser")
-			{
+			} else if (gameObject.name == "FantaDispenser") {
 				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-			}   
-			if(gameObject.name == "SpriteDispenser")
-			{
+			} else if (gameObject.name == "RootbeerDispenser") {
 				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-			}   
-			if(gameObject.name == "WaterDispenser")
-			{
+			} else if (gameObject.name == "SpriteDispenser") {
 				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
-				eventData.pointerDrag.GetComponent<Image>().sprite = otherSprite;
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
-			}   
+			} else if (gameObject.name == "WaterDispenser") {
+				//GameManager.gManager.functionManager.addItemToOrderButton("drink_coke");
+				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
+				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
+			} else {
+				d.parentToReturnTo = this.transform;
+			}
         }
         
         
