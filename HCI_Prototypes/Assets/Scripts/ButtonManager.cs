@@ -133,6 +133,7 @@ public class ButtonManager : MonoBehaviour {
         GameManager.gManager.sidesMenu.SetActive(false);
         GameManager.gManager.viewMenu.SetActive(false);
         GameManager.gManager.checkoutMenu.SetActive(false);
+        GameManager.gManager.currentMenu = targetScreen;
         switch (targetScreen)
         {
             case "Main":
@@ -158,13 +159,18 @@ public class ButtonManager : MonoBehaviour {
 
     public void returnToPreviousScreen() 
     {
-        string previous = GameManager.gManager.previousMenu.Pop();
+        string previous;
+        //if (GameManager.gManager.previousMenu.Count > 0)
+            previous = GameManager.gManager.previousMenu.Pop();
+        //else
+            //previous = "Main";
         GameManager.gManager.mainMenu.SetActive(false);
         GameManager.gManager.burgerMenu.SetActive(false);
         GameManager.gManager.drinksMenu.SetActive(false);
         GameManager.gManager.sidesMenu.SetActive(false);
         GameManager.gManager.viewMenu.SetActive(false);
         GameManager.gManager.checkoutMenu.SetActive(false);
+        GameManager.gManager.currentMenu = previous;
         switch (previous)
         {
             case "Main":

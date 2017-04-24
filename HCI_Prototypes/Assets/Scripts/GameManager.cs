@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
             {
                 temp = (GameObject)obj;
                 //Debug.Log(temp.name);
-                if (temp.name == "InstructingCanvas")
+                if (temp.name == "Canvas")
                     break;
             }
         }
@@ -109,11 +109,11 @@ public class GameManager : MonoBehaviour {
     {
         //Debug.Log("Level Loaded");
         Debug.Log(scene.name);
-        Debug.Log(mode);
-            //Load all gameObjects into gameObjectsArray
-            generateObjectArray();
-            loadGameObjects();
-            initializeScene();
+        //Debug.Log(mode);
+        //Load all gameObjects into gameObjectsArray
+        generateObjectArray();
+        loadGameObjects();
+        initializeScene();
         }
 
     // Update is called once per frame
