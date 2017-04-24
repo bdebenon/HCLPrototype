@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject sidesMenu;
 	public GameObject viewMenu;
 	public GameObject checkoutMenu;
+    public GameObject paymentMenu;
 
 	public ButtonManager bManager;
 
@@ -40,11 +41,6 @@ public class GameManager : MonoBehaviour {
 	public void changeScene(string sceneName)
 	{
 		SceneManager.LoadScene (sceneName);
-        //if (sceneName == "Instructing")
-        //{
-            Debug.Log("INITIALIZING");
-            //initializeScene();
-        //}
     }
 
     //Helper Functions
@@ -83,14 +79,25 @@ public class GameManager : MonoBehaviour {
         sidesMenu = findGameObject("MenuSides");
         viewMenu = findGameObject("MenuViewOrder");
         checkoutMenu = findGameObject("MenuCheckout");
+        paymentMenu = findGameObject("MenuPayment");
     }
 
-    void initializeScene()
+    public void initializeScene()
     {
         List<GameObject> objs = new List<GameObject>();
         order = new Order();
         previousMenu = new Stack<string>();
         currentMenu = "Main";
+    }
+    public void LoadMainMenu()
+    {
+        mainMenu.SetActive(true);
+        burgerMenu.SetActive(false);
+        drinksMenu.SetActive(false);
+        sidesMenu.SetActive(false);
+        viewMenu.SetActive(false);
+        checkoutMenu.SetActive(false);
+        paymentMenu.SetActive(false);
     }
 
     void OnEnable()
@@ -107,14 +114,13 @@ public class GameManager : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        //Debug.Log("Level Loaded");
-        Debug.Log(scene.name);
-        //Debug.Log(mode);
-        //Load all gameObjects into gameObjectsArray
+        //Debug.Log(scene.name);
         generateObjectArray();
         loadGameObjects();
         initializeScene();
-        }
+        LoadMainMenu();
+
+    }
 
     // Update is called once per frame
     void Update () {
