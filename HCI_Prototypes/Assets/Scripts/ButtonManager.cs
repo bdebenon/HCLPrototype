@@ -14,7 +14,6 @@ public class ButtonManager : MonoBehaviour {
 	void Update () {
 		
 	}
-    
     public void dineInTakeOutButton(string option){
         GameManager.gManager.functionManager.dineInTakeOut(option);
     }
@@ -23,26 +22,19 @@ public class ButtonManager : MonoBehaviour {
         GameManager.gManager.functionManager.addItemToOrder(item);
 
     }
-
     public void removeItemFromOrderButton(string item)
     {
         GameManager.gManager.functionManager.removeItemFromOrder(item);
     }
-
-    //TODO change client call
 	public void removeCustomBurgerButton(int number)
 	{
         GameManager.gManager.functionManager.removeCustomBurger(number);
 
     }
-
-    //TOTO change Client Call
 	public void checkOutButton(){
         GameManager.gManager.functionManager.checkOut();
 
     }
-
-    //TODO change client call
     public void switchToScreenButton(string targetScreen)
     {
         GameManager.gManager.functionManager.switchToScreen(targetScreen);
@@ -60,7 +52,7 @@ public class ButtonManager : MonoBehaviour {
     {
         GameManager.gManager.functionManager.cancelOrder();
     }
-    public void openViewOrder()
+    public void openViewOrderButton()
     {
         GameManager.gManager.functionManager.openViewOrder();
     }

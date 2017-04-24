@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public Order order;
     public FunctionManager functionManager;
     public DropZone dropZone;
+    public Scene currentScene;
 
     //Game Objects Array
     public Transform[] gameObjectsArray;
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour {
         loadGameObjects();
         initializeScene();
         LoadMainMenu();
-
+        currentScene = scene;
     }
 
     // Update is called once per frame
