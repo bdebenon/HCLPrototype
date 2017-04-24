@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject viewMenu;
 	public GameObject checkoutMenu;
     public GameObject paymentMenu;
+    
+    public GameObject drinksTray;
 
 	public ButtonManager bManager;
 
@@ -123,6 +125,13 @@ public class GameManager : MonoBehaviour {
         initializeScene();
         LoadMainMenu();
         currentScene = scene;
+        Debug.Log(scene.name);
+        
+        if(scene.name == "Manipulating")
+        {
+            drinksTray = findGameObject("DrinksTray");
+        }
+
     }
 
     // Update is called once per frame
