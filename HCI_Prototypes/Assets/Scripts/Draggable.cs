@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
     public Transform parentToReturnTo = null;
+	public Transform originalTransformLocation = null;
     
 	public void OnBeginDrag(PointerEventData eventData) {
 		Debug.Log("OnBeginDrag");
         
+		originalTransformLocation = this.transform;
         parentToReturnTo = this.transform.parent;
-        this.transform.SetParent(parentToReturnTo.parent);
+        this.transform.SetParent(parentToReturnTo);
         
         GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}

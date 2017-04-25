@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Drink : MonoBehaviour {
 
-    string type = "";
+    public string type = "";
 
     public void SetType(string _type)
     {

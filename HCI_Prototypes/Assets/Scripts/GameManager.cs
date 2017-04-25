@@ -24,8 +24,12 @@ public class GameManager : MonoBehaviour {
     public GameObject paymentMenu;
 
 	public GameObject cup;
+	public GameObject fries;
+	public GameObject onionRings;
+	public GameObject iceCream;
     
     public GameObject drinksTray;
+	public GameObject sidesTray;
 
 	public ButtonManager bManager;
 
@@ -132,6 +136,7 @@ public class GameManager : MonoBehaviour {
         if(scene.name == "Manipulating")
         {
             drinksTray = findGameObject("DrinksTray");
+			sidesTray = findGameObject ("SidesTray");
         }
 
     }
