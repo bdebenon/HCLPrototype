@@ -5,6 +5,7 @@ using UnityEngine;
 public class CustomBurger : MonoBehaviour {
 
 	public string type = "";
+	public bool onTray = false;
 
 	public void SetType(string _type)
 	{

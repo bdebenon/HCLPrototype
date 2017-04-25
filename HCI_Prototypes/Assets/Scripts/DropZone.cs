@@ -97,12 +97,16 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
 				d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
 			} else if (gameObject.name == "DrinksTray") {
+				eventData.pointerDrag.GetComponent<Drink> ().onTray = true;
 				d.parentToReturnTo = this.transform;
 			}
 			else if (gameObject.name == "SidesTray") {
 
 				string side_type = eventData.pointerDrag.GetComponent<Side> ().type;
-				GameManager.gManager.functionManager.addItemToOrder ("side_" + side_type);
+				if (eventData.pointerDrag.GetComponent<Side> ().onTray == false){
+					GameManager.gManager.functionManager.addItemToOrder ("side_" + side_type);
+				}
+				eventData.pointerDrag.GetComponent<Side> ().onTray = true;
 
 				if (side_type == "fries") {
 					GameObject newFries = Instantiate (GameManager.gManager.fries, Vector3.zero, Quaternion.identity, GameManager.gManager.sidesMenu.transform);
@@ -120,7 +124,10 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 			else if (gameObject.name == "BurgersTray") {
 
 				string burger_type = eventData.pointerDrag.GetComponent<CustomBurger> ().type;
-				GameManager.gManager.functionManager.addItemToOrder ("burger_" + burger_type);
+				if (eventData.pointerDrag.GetComponent<CustomBurger> ().onTray == false){
+					GameManager.gManager.functionManager.addItemToOrder ("burger_" + burger_type);
+				}
+				eventData.pointerDrag.GetComponent<CustomBurger> ().onTray = true;
 
 				if (burger_type == "cheeseburger") {
 					GameObject newFries = Instantiate (GameManager.gManager.Cheeseburger, Vector3.zero, Quaternion.identity, GameManager.gManager.burgerMenu.transform);
@@ -138,7 +145,39 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 
 				d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
 			}
+			else if (gameObject.name == "BurgerTrashcan") {
 
+				if (eventData.pointerDrag.GetComponent<CustomBurger> ().onTray == true){
+					GameManager.gManager.functionManager.removeItemFromOrder ("burger_" + eventData.pointerDrag.GetComponent<CustomBurger> ().type);
+					eventData.pointerDrag.GetComponent<CustomBurger> ().onTray = false;
+					Destroy(eventData.pointerDrag.gameObject);
+				}
+				else{
+					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+				}
+			}
+			else if (gameObject.name == "DrinksTrashcan") {
+
+				if (eventData.pointerDrag.GetComponent<Drink> ().onTray == true){
+					GameManager.gManager.functionManager.removeItemFromOrder ("drink_" + eventData.pointerDrag.GetComponent<Drink> ().type);
+					eventData.pointerDrag.GetComponent<Drink> ().onTray = false;
+					Destroy(eventData.pointerDrag.gameObject);
+				}
+				else{
+					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+				}
+			}
+			else if (gameObject.name == "SidesTrashcan") {
+
+				if (eventData.pointerDrag.GetComponent<Side> ().onTray == true){
+					GameManager.gManager.functionManager.removeItemFromOrder ("side_" + eventData.pointerDrag.GetComponent<Side> ().type);
+					eventData.pointerDrag.GetComponent<Side> ().onTray = false;
+					Destroy(eventData.pointerDrag.gameObject);
+				}
+				else{
+					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+				}
+			}
 			else {
 				d.parentToReturnTo = this.transform;
 			}
