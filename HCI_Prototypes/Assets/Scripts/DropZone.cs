@@ -117,6 +117,27 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 					
 				d.parentToReturnTo = GameManager.gManager.sidesTray.transform;
 			}
+			else if (gameObject.name == "BurgersTray") {
+
+				string burger_type = eventData.pointerDrag.GetComponent<CustomBurger> ().type;
+				GameManager.gManager.functionManager.addItemToOrder ("burger_" + burger_type);
+
+				if (burger_type == "cheeseburger") {
+					GameObject newFries = Instantiate (GameManager.gManager.Cheeseburger, Vector3.zero, Quaternion.identity, GameManager.gManager.burgerMenu.transform);
+					newFries.transform.localPosition = new Vector3 (120, 100, 0);
+				} else if (burger_type == "hamburger") {
+					GameObject newOnionRings = Instantiate (GameManager.gManager.Hamburger, Vector3.zero, Quaternion.identity, GameManager.gManager.burgerMenu.transform);
+					newOnionRings.transform.localPosition = new Vector3 (-90, 100, 0);
+				} else if (burger_type == "baconBurger") {
+					GameObject newIceCream = Instantiate (GameManager.gManager.BaconBurger, Vector3.zero, Quaternion.identity, GameManager.gManager.burgerMenu.transform);
+					newIceCream.transform.localPosition = new Vector3 (-300, 100, 0);
+				} else if (burger_type == "chickenBurger") {
+					GameObject newIceCream = Instantiate (GameManager.gManager.ChickenBurger, Vector3.zero, Quaternion.identity, GameManager.gManager.burgerMenu.transform);
+					newIceCream.transform.localPosition = new Vector3 (300, 100, 0);
+				}
+
+				d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+			}
 
 			else {
 				d.parentToReturnTo = this.transform;

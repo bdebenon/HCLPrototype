@@ -27,9 +27,15 @@ public class GameManager : MonoBehaviour {
 	public GameObject fries;
 	public GameObject onionRings;
 	public GameObject iceCream;
+	public GameObject Cheeseburger;
+	public GameObject Hamburger;
+	public GameObject ChickenBurger;
+	public GameObject BaconBurger;
+
     
     public GameObject drinksTray;
 	public GameObject sidesTray;
+	public GameObject burgersTray;
 
 	public ButtonManager bManager;
 
@@ -137,6 +143,7 @@ public class GameManager : MonoBehaviour {
         {
             drinksTray = findGameObject("DrinksTray");
 			sidesTray = findGameObject ("SidesTray");
+			burgersTray = findGameObject ("BurgersTray");
         }
 
     }
