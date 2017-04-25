@@ -132,10 +132,13 @@ public class GameManager : MonoBehaviour {
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         //Debug.Log(scene.name);
-        generateObjectArray();
-        loadGameObjects();
-        initializeScene();
-        LoadMainMenu();
+        if (scene.name == "Manipulating" || scene.name == "Instructing")
+        {
+            generateObjectArray();
+            loadGameObjects();
+            initializeScene();
+            LoadMainMenu();
+        }
         currentScene = scene;
         Debug.Log(scene.name);
         
