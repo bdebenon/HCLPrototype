@@ -317,7 +317,8 @@ public class FunctionManager : MonoBehaviour {
     {
         GameManager.gManager.initializeScene();
         GameManager.gManager.LoadMainMenu();
-        resetTextFields();
+        if(GameManager.gManager.currentScene.name == "Instructing")
+            resetTextFields();
     }
     public void openViewOrder()
     {
