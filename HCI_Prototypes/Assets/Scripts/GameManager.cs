@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     public Scene currentScene;
 
     //Game Objects Array
-    public Transform[] gameObjectsArray;
+    public List<Transform> gameObjectsArray;
 
     public GameObject mainMenu;
 	public GameObject burgerMenu;
@@ -75,16 +75,22 @@ public class GameManager : MonoBehaviour {
                     break;
             }
         }
-        gameObjectsArray = temp.GetComponentsInChildren<Transform>(true);
+		Transform [] tempTranforms = temp.GetComponentsInChildren<Transform>(true);
+		for(int i = 0; i < tempTranforms.Length; ++i) {
+			gameObjectsArray.Add(tempTranforms[i]);
+		}
     }
     public GameObject findGameObject(string s)
     {
-        for (int i = 0; i < gameObjectsArray.Length; ++i)
+		for (int i = 0; i < gameObjectsArray.Count; ++i)
         {
-            if (gameObjectsArray[i].gameObject.name == s)
-            {
-                return gameObjectsArray[i].gameObject;
-            }
+			if (gameObjectsArray [i].gameObject != null) {
+				if (gameObjectsArray[i].gameObject.name == s)
+				{
+					return gameObjectsArray[i].gameObject;
+				}
+			}
+            
         }
         return null;
     }
