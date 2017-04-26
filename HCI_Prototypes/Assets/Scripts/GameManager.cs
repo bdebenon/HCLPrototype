@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
     {
 		for (int i = 0; i < gameObjectsArray.Count; ++i)
         {
-			if (gameObjectsArray [i].gameObject != null) {
+			if (gameObjectsArray[i] != null && !gameObjectsArray[i].Equals(null)) {
 				if (gameObjectsArray[i].gameObject.name == s)
 				{
 					return gameObjectsArray[i].gameObject;
@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour {
         List<GameObject> objs = new List<GameObject>();
         order = new Order();
         previousMenu = new Stack<string>();
+        functionManager = new FunctionManager();
         currentMenu = "Main";
     }
     public void LoadMainMenu()
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour {
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         //Debug.Log(scene.name);
+        gameObjectsArray.Clear();
         if (scene.name == "Manipulating" || scene.name == "Instructing")
         {
             generateObjectArray();

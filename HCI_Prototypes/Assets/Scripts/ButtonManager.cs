@@ -76,5 +76,9 @@ public class ButtonManager : MonoBehaviour {
     {
         GameManager.gManager.functionManager.closeCancelScreen();
     }
+    public void quitApplication()
+    {
+        Application.Quit();
+    }
 
 }
