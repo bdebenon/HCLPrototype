@@ -333,5 +333,9 @@ public class FunctionManager {
     {
         GameManager.gManager.findGameObject("CancelScreen").SetActive(false);
     }
+    public void newCup()
+    {
+        GameManager.gManager.dropZone.generateNewCup();
+    }
 
 }

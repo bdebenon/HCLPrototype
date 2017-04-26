@@ -80,5 +80,9 @@ public class ButtonManager : MonoBehaviour {
     {
         Application.Quit();
     }
+    public void generateNewCupButton()
+    {
+        GameManager.gManager.functionManager.newCup();
+    }
 
 }

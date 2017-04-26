@@ -16,6 +16,12 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
     
 	public Sprite otherSprite;
 
+    public void generateNewCup()
+    {
+        GameObject newCup = Instantiate(GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+        newCup.transform.localPosition = new Vector3(300, -200, 0);
+    }
+
     public void OnDrop(PointerEventData eventData) {
         Debug.Log(eventData.pointerDrag.name + " was dropped on " + gameObject.name);
         
@@ -28,7 +34,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 					GameManager.gManager.functionManager.removeItemFromOrder ("drink_" + eventData.pointerDrag.GetComponent<Drink> ().type);
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("coke");
-				GameManager.gManager.functionManager.addItemToOrder ("drink_coke");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
+                GameManager.gManager.functionManager.addItemToOrder ("drink_coke");
 
 				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
@@ -42,8 +49,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("drPepper");
 				GameManager.gManager.functionManager.addItemToOrder ("drink_drPepper");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
 
-				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+                GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
 
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
@@ -54,8 +62,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("fanta");
 				GameManager.gManager.functionManager.addItemToOrder ("drink_fanta");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
 
-				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+                GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
 
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
@@ -66,8 +75,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("rootBeer");
 				GameManager.gManager.functionManager.addItemToOrder ("drink_rootBeer");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
 
-				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+                GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
 
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
@@ -78,8 +88,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("sprite");
 				GameManager.gManager.functionManager.addItemToOrder ("drink_sprite");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
 
-				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+                GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
 
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
@@ -90,8 +101,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 				}
 				eventData.pointerDrag.GetComponent<Drink> ().SetType ("water");
 				GameManager.gManager.functionManager.addItemToOrder ("drink_water");
+                eventData.pointerDrag.GetComponent<Drink>().initialized = true;
 
-				GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
+                GameObject newCup = Instantiate (GameManager.gManager.cup, Vector3.zero, Quaternion.identity, GameManager.gManager.drinksMenu.transform);
 				newCup.transform.localPosition = new Vector3 (300, -200, 0);
 
 				eventData.pointerDrag.GetComponent<Image> ().sprite = otherSprite;
@@ -153,18 +165,19 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 					Destroy(eventData.pointerDrag.gameObject);
 				}
 				else{
-					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+                    if(eventData.pointerDrag.GetComponent<CustomBurger>().onTray == false)
+					    d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
 				}
 			}
 			else if (gameObject.name == "DrinksTrashcan") {
-
-				if (eventData.pointerDrag.GetComponent<Drink> ().onTray == true){
+                if (eventData.pointerDrag.GetComponent<Drink> ().initialized == true){
 					GameManager.gManager.functionManager.removeItemFromOrder ("drink_" + eventData.pointerDrag.GetComponent<Drink> ().type);
+                    Debug.Log("drink_" + eventData.pointerDrag.GetComponent<Drink>().type);
 					eventData.pointerDrag.GetComponent<Drink> ().onTray = false;
 					Destroy(eventData.pointerDrag.gameObject);
 				}
 				else{
-					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+                        d.parentToReturnTo = GameManager.gManager.drinksTray.transform;
 				}
 			}
 			else if (gameObject.name == "SidesTrashcan") {
@@ -175,7 +188,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 					Destroy(eventData.pointerDrag.gameObject);
 				}
 				else{
-					d.parentToReturnTo = GameManager.gManager.burgersTray.transform;
+                    if (eventData.pointerDrag.GetComponent<Side>().onTray == false)
+                        d.parentToReturnTo = GameManager.gManager.sidesTray.transform;
 				}
 			}
 			else {
