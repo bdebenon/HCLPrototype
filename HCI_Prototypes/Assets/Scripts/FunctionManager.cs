@@ -221,7 +221,6 @@ public class FunctionManager {
         GameManager.gManager.burgerMenu.SetActive(false);
         GameManager.gManager.drinksMenu.SetActive(false);
         GameManager.gManager.sidesMenu.SetActive(false);
-        GameManager.gManager.viewMenu.SetActive(false);
         GameManager.gManager.checkoutMenu.SetActive(false);
         GameManager.gManager.paymentMenu.SetActive(false);
         GameManager.gManager.currentMenu = targetScreen;
@@ -262,7 +261,6 @@ public class FunctionManager {
         GameManager.gManager.burgerMenu.SetActive(false);
         GameManager.gManager.drinksMenu.SetActive(false);
         GameManager.gManager.sidesMenu.SetActive(false);
-        GameManager.gManager.viewMenu.SetActive(false);
         GameManager.gManager.checkoutMenu.SetActive(false);
         GameManager.gManager.currentMenu = previous;
         switch (previous)
